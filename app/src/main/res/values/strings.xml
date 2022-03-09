@@ -4,4 +4,5 @@
     <string name="_00000000000">00000000000</string>
     <string name="antwort_vom_server">Antwort vom Server!</string>
     <string name="abschicken">Abschicken</string>
+    <string name="ungueltigeMatrNr">Ungueltige Matrikelnummer</string>
 </resources>

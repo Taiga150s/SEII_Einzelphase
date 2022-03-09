@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     TextView serverResponse;
     Context context; //because of android.content.Context.getApplicationInfo()' on a null object reference
     Socket socket;
+    Button calculate;
 
 
     @Override
@@ -35,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
         editText = findViewById(R.id.editTextNumber);
         serverResponse = findViewById(R.id.serverResponse);
         btn = findViewById(R.id.sendBtn);
+        calculate = findViewById(R.id.calculate);
+
+        calculate.setOnClickListener(this::primeOnly);
 
     }
 
@@ -80,6 +84,46 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+//2.2 MatrNr: 11808621 mod 7 = 6 => nur jene Ziffern ausgeben, die Primzahlen sind
+    /*
+    Algorithmus:
+    Teile n der Reihe nach von 2 bis n-1 durch alle Zahlen und schaue jeweils, ob ein Rest (d.h. eine Zahl ungleich 0)
+    bei der Division entsteht. Wenn das immer der Fall ist, dann handelt es sich um eine Primzahl.
+     */
+public void primeOnly(View view) {
+    try {
+        int length = editText.getText().toString().length();
+        int matrNr = Integer.parseInt(editText.getText().toString());
+        StringBuilder res = new StringBuilder();
+        boolean isPrime = true;
+        int k = 2;
+        for (int i = 0; i < length; i++) {
+            isPrime = true;
+            int number = matrNr % 10; //go through numbers from last to first (right to left)
+
+            while (k < number) {
+                if (number % k == 0) {
+                    isPrime = false;
+                    break;
+                }
+                k++;
+
+            }
+
+            if (isPrime) {
+                res.append(number);
+            }
+
+            matrNr /= 10; //cut last number
+        }
+        //reverse res to get right order for matrNr
+        String reverseRes = res.reverse().toString();
+        serverResponse.setText(reverseRes);
+    }catch (NumberFormatException e){
+        serverResponse.setText(R.string.ungueltigeMatrNr);
+    }
+    }
+
 }
 
 
