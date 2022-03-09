@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">NetworkTest</string>
     <string name="gib_deine_matrikelnummer_ein">Gib deine Matrikelnummer ein</string>
+    <string name="_00000000000">00000000000</string>
+    <string name="antwort_vom_server">Antwort vom Server!</string>
+    <string name="abschicken">Abschicken</string>
 </resources>

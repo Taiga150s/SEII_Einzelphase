@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <EditText
         android:id="@+id/serverResponse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="84dp"
-        android:text="Antwort vom Server!"
+        android:text="@string/antwort_vom_server"
         app:layout_constraintBottom_toTopOf="@id/sendBtn"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -32,6 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:text="@string/_00000000000"
         android:inputType="number"
         app:layout_constraintTop_toBottomOf="@id/matrNrEingeben"
         app:layout_constraintBottom_toTopOf="@id/serverResponse"
@@ -43,7 +44,8 @@
         android:id="@+id/sendBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Abschicken"
+        android:onClick="send"
+        android:text="@string/abschicken"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
